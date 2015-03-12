@@ -1,26 +1,26 @@
 <div class="row pad">
   <div class="col-xs-12 opaque">
-    <h1 class="text-center">Hello World</h1>
+    <h1 class="text-center">Hello sir</h1>
+    <h4 ng-show="loginStatus != 'connected'">This app is made to get Antti hired. Please be amused. Check out the details in the "why" and "code" tabs.</h4>
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
       <div class="opaque pad wide">
+
       <form>
         <div id="food-group" class="form-group">
-          <label ng-show="loginStatus != 'connected'">Wanna contact us</label>
           <label ng-show="loginStatus == 'connected'">
-            <span ng-bind="user.first_name"></span>, we'll be in touch
+            <span ng-bind="user.first_name"></span>, we'll be in touch with your email <span ng-show="user.email" ng-bind="user.email"/>
           </label>
-          <input type="text" name="food" class="form-control" placeholder="your email">
       </div>
 
         <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="login()" ng-hide="loginStatus == 'connected'">
-          Login with Facebook first
+          Login with Facebook to get started
         </button>
         <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="add()" ng-show="loginStatus == 'connected'">
-          Ping us           
+          Ping Antti           
         </button>
       </form>
     </div>

@@ -1,9 +1,11 @@
 
-var foods = angular.module('foods', ['facebook','ngRoute','ngAnimate'])
-foods.config(
+var fbprovider;
+var cv = angular.module('cv', ['facebook','ngRoute','ngAnimate'])
+cv.config(
   ['FacebookProvider','$routeProvider', 
-    function(FacebookProvider, $routeProvider) { // , FacebookProvider
-      FacebookProvider.init('785659141493231');
+    function(FacebookProvider, $routeProvider) { 
+
+      fbprovider = FacebookProvider;
       $routeProvider.when('/why', {
                 templateUrl : 'why.html',
                 controller  : 'mainController'
@@ -14,7 +16,7 @@ foods.config(
             });
       $routeProvider.otherwise( {
                 templateUrl : 'main.html',
-                controller  : 'foodController'
+                controller  : 'mainController'
             });
    }])
 
@@ -24,12 +26,27 @@ function mainController($scope, $http, Facebook) {
   $scope.loginStatus = 'disconnected';
   $scope.facebookIsReady = false;
   $scope.user = null;
-  
+
+
+  $http.get('/api/appid').success(function(data) {
+    console.log('app id: ' + data);
+    $scope.appid = data;
+    fbprovider.init($scope.appid);
+  }).error(function(data) {
+    console.log('Error: ' + data);
+  });
+
+
+
   $scope.login = function () {
-    Facebook.login(function(response) {
-      $scope.loginStatus = response.status;
-      $scope.api();            
-      console.log(response.status);
+    Facebook.login(
+      function(response) {
+        $scope.loginStatus = response.status;
+        $scope.api();            
+        console.log(response.status);
+      },{
+        scope: 'public_profile,email', 
+        return_scopes: true
     });
   };
   
