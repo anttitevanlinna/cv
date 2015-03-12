@@ -1,0 +1,72 @@
+html {
+ 	background:#000000 url(/img/keep-calm.png) no-repeat center center fixed; 
+}
+
+body {
+	background:transparent;
+	-webkit-font-smoothing: antialiased;
+	-webkit-overflow-scrolling: touch;
+	font-family: Helvetica, Arial, sans-serif;
+	color:#fff;
+	color:rgba(50,50,50,.8); 
+	font-weight: normal;
+}
+
+a { 
+	color:rgba(50,50,50,.8); 
+  text-decoration: none; 
+  font-weight: 700;
+  
+}
+a:hover, a:active { 
+  text-decoration: underline; 
+}
+
+.opaque{
+  background-color:rgba(256, 256, 256, 0.8);
+}
+
+.pad{
+  padding: 10px;
+}
+
+.topmargin{
+    margin-top: 30px;
+}
+
+.btn{
+  text-align: center;
+}
+
+.wide{
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.next{
+  background-color:rgba(255, 0, 0, 0.95);
+}
+
+.add{
+  background-color:rgba(0, 255, 0, 0.7);
+}
+
+.reveal-animation.ng-enter {
+  -webkit-animation: enter_sequence 0.3s linear; /* Safari/Chrome */
+  animation: enter_sequence 0.3s linear; /* IE10+ and Future Browsers */
+}
+@-webkit-keyframes enter_sequence {
+  from { opacity:0.6; }
+  to { opacity:1; }
+}
+@keyframes enter_sequence {
+  from { opacity:0.6; }
+  to { opacity:1; }
+}
+
+@media (min-width: 768px) {
+.navbar-nav-heavy {
+  font-size: 24px;
+}
+}
+  

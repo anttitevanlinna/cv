@@ -1,0 +1,7 @@
+{
+  "name": "Antti's CV",
+  "description": "Wanna see what I do",
+  "repository": "https://github.com/anttitevanlinna",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["CV"]
+}
