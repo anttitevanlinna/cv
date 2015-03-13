@@ -9,7 +9,8 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	color:#fff;
 	color:rgba(50,50,50,.8); 
-	font-weight: normal;
+  text-align: center;
+
 }
 
 a { 
@@ -21,6 +22,7 @@ a {
 a:hover, a:active { 
   text-decoration: underline; 
 }
+
 
 .opaque{
   background-color:rgba(256, 256, 256, 0.8);
