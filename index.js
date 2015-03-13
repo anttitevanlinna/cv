@@ -1,4 +1,4 @@
-var oauth = require('./oauthclient');
+//var oauth = require('./oauthclient');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser')
