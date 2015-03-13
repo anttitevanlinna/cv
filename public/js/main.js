@@ -1,10 +1,11 @@
 var fbprovider;
 var cv = angular.module('cv', ['facebook','ngRoute','ngAnimate'])
 cv.config(
-  ['FacebookProvider','$routeProvider', 
-    function(FacebookProvider, $routeProvider) { 
+  ['FacebookProvider','$routeProvider', '$locationProvider',
+    function(FacebookProvider, $routeProvider, $locationProvider) { 
 
       fbprovider = FacebookProvider;
+      $locationProvider.html5Mode(true);
       $routeProvider.when('/why', {
                 templateUrl : 'why.html',
                 controller  : 'mainController'
@@ -21,6 +22,7 @@ cv.config(
 
 function mainController($scope, $http, Facebook, $location) {
 
+  $scope.successMsg = $location.search()['success']
   $scope.formData = {};
   $scope.loginStatus = 'disconnected';
   $scope.facebookIsReady = false;
@@ -46,8 +48,10 @@ function mainController($scope, $http, Facebook, $location) {
 
     toSend = $scope.mock ? mockdata : contact;
 
-    jump('send', 'automation', 'trigger', '5502a1c52bd0151e438b4567', toSend);
-    $location.path('/why');
+    if( !$scope.mock ){
+      jump('send', 'automation', 'trigger', '5502a1c52bd0151e438b4567', toSend);
+    } 
+    $location.path('/why').search({success: 'true'});
   }
 
 

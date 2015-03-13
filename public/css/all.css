@@ -45,11 +45,11 @@ a:hover, a:active {
   margin-bottom: 25px;
 }
 
-.next{
+.red{
   background-color:rgba(255, 0, 0, 0.95);
 }
 
-.add{
+.green{
   background-color:rgba(0, 255, 0, 0.7);
 }
 

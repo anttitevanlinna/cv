@@ -9,16 +9,13 @@
           <span ng-bind="user.first_name"></span>, we'll be in touch with your email <span ng-show="user.email" ng-bind="user.email"/>
         </label>
       </div>
-
       <button type="submit" class="btn btn-success btn-lg btn-block pad" ng-click="login()" ng-hide="loginStatus == 'connected'">
         Login with Facebook to get started
       </button>
       <button type="submit" class="btn btn-success btn-lg btn-block pad" ng-click="addMe()" ng-show="loginStatus == 'connected'">
-        Ping Antti           
+        Ping Antti
       </button>
-
       Okay, if you don't fancy signing in with Facebook, you can simply drop me a line at <a href="mailto:tevanlin@gmail.com">tevanlin@gmail.com</a>. All I really want to do is to get your contact. 
-
     </form>
   </div>
 </div>
