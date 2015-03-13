@@ -1,4 +1,3 @@
-
 var fbprovider;
 var cv = angular.module('cv', ['facebook','ngRoute','ngAnimate'])
 cv.config(
@@ -20,22 +19,36 @@ cv.config(
             });
    }])
 
-function mainController($scope, $http, Facebook) {
+function mainController($scope, $http, Facebook, $location) {
 
   $scope.formData = {};
   $scope.loginStatus = 'disconnected';
   $scope.facebookIsReady = false;
   $scope.user = null;
 
-
-  $http.get('/api/appid').success(function(data) {
-    console.log('app id: ' + data);
-    $scope.appid = data;
-    fbprovider.init($scope.appid);
+  $http.get('/api/isMock').success(function(data) {
+    $scope.mock = JSON.parse(data);
+    fbprovider.init($scope.mock ? 295250210676747 : 1435706023342923);
   }).error(function(data) {
     console.log('Error: ' + data);
   });
 
+  $scope.addMe = function () {
+
+    mockdata = {
+        name: 'Jack'+Math.random(),
+        email: 'Jack'+Math.random()+'@mailinator.com'
+      };
+    contact = {
+        name: $scope.user.first_name,
+        email: $scope.user.email
+      }
+
+    toSend = $scope.mock ? mockdata : contact;
+
+    jump('send', 'automation', 'trigger', '5502a1c52bd0151e438b4567', toSend);
+    $location.path('/why');
+  }
 
 
   $scope.login = function () {
