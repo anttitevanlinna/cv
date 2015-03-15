@@ -10,8 +10,8 @@ cv.config(
                 templateUrl : 'why.html',
                 controller  : 'mainController'
             });
-      $routeProvider.when('/code', {
-                templateUrl : 'code.html',
+      $routeProvider.when('/portfolio', {
+                templateUrl : 'portfolio.html',
                 controller  : 'mainController'
             });
       $routeProvider.otherwise( {
