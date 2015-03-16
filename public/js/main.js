@@ -47,10 +47,10 @@ function mainController($scope, $http, Facebook, $location) {
       }
 
     toSend = $scope.mock ? mockdata : contact;
+    console.log(toSend.email);
 
-    if( !$scope.mock ){
-      jump('send', 'automation', 'trigger', '5502a1c52bd0151e438b4567', toSend);
-    } 
+    jump('send', 'automation', 'trigger', '5502a1c52bd0151e438b4567', toSend);
+
     $location.path('/why').search({success: 'true'});
   }
 

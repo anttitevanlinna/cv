@@ -1,0 +1,5 @@
+       <h1>The todos</h1>
+Add delivery optimization to the portfolio<br/>
+Add Expatriate to the portfolio<br/>
+Implement a few mailers based on persisted contacts<br/>
+Start serving personalized content for those that signed up<br>
