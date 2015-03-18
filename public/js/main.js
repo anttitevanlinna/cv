@@ -23,10 +23,6 @@ cv.config(
 function mainController($scope, $http, Facebook, $location) {
 
   $scope.successMsg = $location.search()['success']
-  $scope.formData = {};
-  $scope.loginStatus = 'disconnected';
-  $scope.facebookIsReady = false;
-  $scope.user = null;
 
   $http.get('/api/isMock').success(function(data) {
     $scope.mock = JSON.parse(data);
@@ -69,7 +65,6 @@ function mainController($scope, $http, Facebook, $location) {
   
   $scope.api = function () {
     Facebook.api('/me', function(response) {
-      console.log(response);
       $scope.user = response;
     });
   };
@@ -82,7 +77,6 @@ function mainController($scope, $http, Facebook, $location) {
           if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             var accessToken = response.authResponse.accessToken;
-            $scope.loginStatus ='connected';
             $scope.api();            
           } else if (response.status === 'not_authorized') {
             // the user is logged in to Facebook, 

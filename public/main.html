@@ -1,18 +1,18 @@
 <div class="row pad">
   <div class="col-xs-12 opaque">
-    <h1 class="text-center">Hello Sir</h1>
-    <h4 ng-show="loginStatus != 'connected'">This app is made to get Antti hired. Please be mildly amused. Check out the details in the <a href="/why">Why</a> and <a href="portfolio">Portfolio</a> tabs.</h4>
+    <h1 ng-hide="user" class="text-center">AnttiTevanlinna's Portfolio</h1>
+    <h4 ng-show="loginStatus != 'connected'">This site is made to get Antti hired. Please be mildly amused. Check out the details in the <a href="/why">Why</a> and <a href="portfolio">Portfolio</a> tabs.</h4>
 
     <form>
-      <div id="food-group" class="form-group">
-        <label ng-show="loginStatus == 'connected'">
-          <span ng-bind="user.first_name"></span>, we'll be in touch with your email <span ng-show="user.email" ng-bind="user.email"/>
+      <div class="form-group topmargin">
+        <label ng-show="user">
+          I've got your details now, <span ng-bind="user.first_name"></span>. If you ping me, I'll be in touch with your email <span ng-bind="user.email"/>
         </label>
       </div>
-      <button type="submit" class="btn btn-success btn-lg btn-block pad" ng-click="login()" ng-hide="loginStatus == 'connected'">
-        Login with Facebook to get started
+      <button type="submit" class="btn btn-success btn-lg btn-block pad" ng-click="login()" ng-hide="user">
+        Login with Facebook for the fun of it
       </button>
-      <button type="submit" class="btn btn-success btn-lg btn-block pad" ng-click="addMe()" ng-show="loginStatus == 'connected'">
+      <button type="submit" class="btn btn-success btn-lg btn-block pad" ng-click="addMe()" ng-show="user">
         Ping Antti
       </button>
       Okay, if you don't fancy signing in with Facebook, you can simply drop me a line at <a href="mailto:tevanlin@gmail.com">tevanlin@gmail.com</a>. All I really want to do is to get your contact.<br/>
@@ -22,10 +22,10 @@
 </div>
 
     
-    <div class="row pad">
+<div class="row pad">
   <div class="col-xs-12 opaque">
 
-             <h1>Code</h1>
+    <h1>Code</h1>
        <p>
         This app is simple .js code. You can find it in: 
       <a href="https://github.com/anttitevanlinna/cv">https://github.com/anttitevanlinna/cv</a>. Additionally, a Hekoku account, Jumplead, and Travis CI is used. 
