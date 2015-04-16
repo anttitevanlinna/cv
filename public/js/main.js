@@ -14,6 +14,10 @@ cv.config(
                 templateUrl : 'portfolio.html',
                 controller  : 'mainController'
             });
+      $routeProvider.when('/mobile', {
+                templateUrl : 'mobile.html',
+                controller  : 'mainController'
+            });
       $routeProvider.otherwise( {
                 templateUrl : 'main.html',
                 controller  : 'mainController'
